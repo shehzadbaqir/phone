@@ -17,6 +17,3 @@ o" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordov
     
 <access origin="*" />
 </widget>
-<feature name="Contacts">
-    <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
-</feature>
