@@ -58,6 +58,13 @@ alert(value);
 
 
 });
+function hello()
+{
+alert();
+var value = window.localStorage.getItem("key");
+alert(value);
+
+}
 
 </script>
 
@@ -127,6 +134,7 @@ this is panel
 
       </tbody>
     </table>
+<input type="button" class="ui-btn" value="click here" onclick="hello()">
   </div>
   <div data-role="footer">
 
