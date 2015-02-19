@@ -23,7 +23,6 @@ margin-right:3%;
 
 <!-- Include the jQuery library -->
 <script src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
 
 <!-- Include the jQuery Mobile library -->
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -31,7 +30,42 @@ margin-right:3%;
 
 function hello()
 {
-alert("Hi");
+
+
+window.location.href="#pageFour";
+ navigator.getUserMedia = (navigator.getUserMedia ||
+                            navigator.webkitGetUserMedia ||
+                            navigator.mozGetUserMedia || 
+                            navigator.msGetUserMedia);
+                            
+  if (navigator.getUserMedia) {
+   
+  // Request the camera.
+  navigator.getUserMedia(
+    // Constraints
+    {
+      video: true
+    },
+
+    // Success Callback
+    function(localMediaStream) {
+         alert();
+        var vid = document.getElementById('camera-stream');
+        vid.src = window.URL.createObjectURL(localMediaStream);
+
+    },
+
+    // Error Callback
+    function(err) {
+      // Log the error to the console.
+      console.log('The following error occurred when trying to use getUserMedia: ' + err);
+                  }
+                        );
+
+    } else 
+    {
+      alert('Sorry, your browser does not support getUserMedia');
+    }                          
 
 }
 
@@ -157,6 +191,30 @@ this is panel
           <h1>@shehzad <a href="#pageone">go back</a>
         </div>
     </div>
+    
+      <div id="pageFour" data-role="page">
+        <div data-role="header">
+             <h1>My Images</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div id="video-container">
+              <video id="camera-stream"  autoplay></video>
+            </div>
+           <input type="button" value="snapshot" onclick="snapshot();" />
+           <canvas id="cd" style="width: 500; height: 500;"></canvas>
+           <img id="img" src="" />
+            
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Launch demo modal
+        </button>
+        <div data-role="footer">
+          <h1>@shehzad <a href="#pageone">go back</a>
+        </div>
+    </div>
+    
+    
+    
 <!-- modAL  --->
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
