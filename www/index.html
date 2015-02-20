@@ -68,6 +68,16 @@ window.location.href="#pageFour";
     }                          
 
 }
+function snapshot()
+{
+  var vid = document.getElementById('camera-stream');
+  var cb=document.getElementById("cd");
+  var ctx=cb.getContext('2d');
+  ctx.drawImage(vid,0,0);
+  var im=document.getElementById("img");
+  im.src=ctx.toDataObjecturl;
+  alert(im.src);
+ } 
 
 </script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -197,11 +207,11 @@ this is panel
              <h1>My Images</h1>
         </div>
         <div data-role="main" class="ui-content">
-            <div id="video-container">
-              <video id="camera-stream"  autoplay></video>
+            <div id="video-container" >
+              <video id="camera-stream" style="width:100% ;" autoplay></video>
             </div>
            <input type="button" value="snapshot" onclick="snapshot();" />
-           <canvas id="cd" style="width: 500; height: 500;"></canvas>
+           <canvas id="cd" style="width: 100%"></canvas>
            <img id="img" src="" />
             
         </div>
